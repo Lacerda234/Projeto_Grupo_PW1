@@ -1,0 +1,31 @@
+{% extends 'funcionario/basefun.html' %}
+
+{% block title %}Serviços Agendados{% endblock %}
+
+{% block content %}
+
+
+<div class="main-full-section">
+    <div class="srv-list-content">
+        <div class="srv-lista-x">
+            
+            {% for cliente in clientes %}
+            <div class="srv">
+                <div class="dados">
+                <ul>
+                    <li><span>Nome: </span> {{cliente.nome}}</li>
+                    <li><span>Email: </span> {{cliente.email}}</li>
+                    <li><span>Endereço:: </span> {{cliente.endereco}}</li>
+                </ul>
+                </div>
+                    <div class="curd">
+                        <a href="{% url 'url_updateFuncionario' cliente.pk %}" class="add">Editar</a>
+                    </div>
+            </div>
+                {% endfor %}
+        </div>
+            
+            <a href="{% url 'url_cadastroClientes' %}" class="add">Cadastrar Cliente</a>
+        </div>
+</div>
+{% endblock %}

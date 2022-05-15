@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'imagens/icon.png' %}">
+    <title>Deletar animal</title>
+</head>
+<body>
+    <div>
+        Tem certeza que deseja apagar '{{ object.nome}}'?
+        <form action="." method="post">
+            {% csrf_token %}
+            <input type="submit" value="Sim, tenho certeza">
+            <input type="reset" onclick="location" href = "{% url 'url_animalFun' %}" value="Não">
+        </form>
+    </div>
+</body>
+</html>

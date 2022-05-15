@@ -1,0 +1,17 @@
+{% extends 'funcionario/basefun.html' %}
+{% block title %}
+    Login
+{% endblock title %}
+
+{% block content %}
+        <section id="main-container">
+            <h2>Editar Animal</h2>
+            <form method="post" >
+                
+                {% csrf_token %}
+        
+                {{form.as_p}}
+                <button class="f-bnt" type="submit">Salvar</button>
+            </form>
+        </section>
+{% endblock content %}

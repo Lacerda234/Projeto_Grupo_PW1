@@ -1,0 +1,34 @@
+{% extends 'clientes/basecli.html' %}
+
+{% block title %}Cliente {% endblock %}
+
+{% block content %}
+
+
+
+<div class="main-full-section">
+    <div class="srv-list-content">
+        <div class="srv-lista-x">
+            {% for cliente in clientes %}
+            <div class="srv">
+                
+                <div class="dados">
+                    <ul>
+                        <li><span>Nome: </span> {{cliente.nome}}</li>
+                        <li><span>Email: </span> {{cliente.email}}</li>
+                        <li><span>Endereço:: </span> {{cliente.endereco}}</li>
+                    </ul>
+                </div>
+                <div class="crud">
+                <a href="{% url 'url_updatecliente' cliente.pk %}" class="add">Editar</a>
+            </div>
+
+            </div>
+            {% endfor %}
+        </div>
+            
+    </div>
+        
+</div>
+
+{% endblock %}

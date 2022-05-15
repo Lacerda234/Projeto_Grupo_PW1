@@ -1,0 +1,34 @@
+{% extends 'clientes/basecli.html' %}
+
+{% block title %}Atendimentos Agendados{% endblock %}
+
+{% block content %}
+
+
+
+<div class="main-full-section">
+    <div class="srv-list-content">
+        <div class="srv-lista-x">
+            {% for atendimento in atendimentos %}
+            <div class="srv">
+                <div class="dados">
+                    <ul>
+                        <li><span>Tipo do Atendimento: </span> {{atendimento.tipo}}</li>
+                        <li><span>Data: </span> {{atendimento.data}}</li>
+                        <li><span>Animal:: </span> {{atendimento.animal}}</li>
+                        <li><span>responsável: </span> {{atendimento.responsavel}}</li>
+                        <li><span>Descrição: </span> {{atendimento.Descricao}}</li>
+                    </ul>
+                </div>
+                <div class="crud">
+                    <a href="{% url 'url_updateAtendimentoCli' atendimento.pk  %}" class="add">Editar</a>
+                    <a href="{% url 'url_deleteAtendimentoCli' atendimento.pk  %}" class="add">Excluir</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<a href="{% url 'url_cadastroAtendimentoscli'%}" class="add">Adicionar Atendimento</a>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'clientes/basecli.html' %}
+
+{% block title %}Animaiss{% endblock %}
+
+{% block content %}
+
+
+<div class="main-full-section">
+    <div class="srv-list-content">
+        <div class="srv-lista-x">
+{% for animal in animais %}
+
+            <div class="srv">
+                <div class="dados">
+                    <ul>
+                        <li><span>Nome: </span> {{animal.nome}}</li>
+                        <li><span>Tutor: </span> {{animal.tutor}}</li>
+                        <li><span>Raça: </span> {{animal.raca}}</li>
+                        <li><span>Tipo: </span> {{animal.tipo}}</li>
+                        <li><span>Sexo: </span> {{animal.sexo}}</li>
+                        <li><span>Observações: </span> {{animal.observacoes}}</li>
+                    </ul>
+                </div>
+                <div class="crud">
+                    <a href="{% url 'url_updateAnimalCli' animal.pk %}" class="add">Editar</a>
+                    <a href="{% url 'url_deleteAnimalCLi' animal.pk %}" class="add">Excluir</a>
+                </div>
+                </div>
+{% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+<a href="{% url 'url_cadastroanimalcli'%}" class="add">Adicionar Mascote</a>
+{% endblock %}

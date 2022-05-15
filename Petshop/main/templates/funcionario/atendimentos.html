@@ -1,0 +1,32 @@
+{% extends 'funcionario/basefun.html' %}
+
+{% block title %}Atendimentos Agendados{% endblock %}
+
+{% block content %}
+
+{% for atendimento in atendimentos %}
+
+<div class="main-full-section">
+    <div class="srv-list-content">
+        <div class="srv-lista-x">
+            <div class="srv">
+                <div class="dados">
+                    <ul>
+                        <li><span>Tipo do Atendimento: </span> {{atendimento.tipo}}</li>
+                        <li><span>Data: </span> {{atendimento.data}}</li>
+                        <li><span>Animal:: </span> {{atendimento.animal}}</li>
+                        <li><span>responsável: </span> {{atendimento.responsavel}}</li>
+                        <li><span>Descrição: </span> {{atendimento.Descricao}}</li>
+                    </ul>
+                </div>
+                <div class="crud">
+                    <a href="{% url 'url_updateatendimento' atendimento.pk  %}" class="add">Editar</a>
+                    <a href="{% url 'url_deleteAtendimento' atendimento.pk  %}" class="add">Excluir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<a href="{% url 'url_cadastroAtendimentos'%}" class="add">Adicionar Atendimento</a>
+{% endblock %}

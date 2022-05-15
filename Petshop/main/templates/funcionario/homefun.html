@@ -1,0 +1,34 @@
+{% extends 'funcionario/basefun.html' %}
+
+{% block title %}Contato{% endblock %}
+
+{% block content %}
+
+
+<div class="main-full-section">
+    <div class="srv-list-content">
+        <div class="srv-lista-x">
+            {% for funcionario in funcionarios %}
+            <div class="srv">
+                <div class="dados">
+                    <ul>
+                        <li><span>Nome: </span> {{funcionario.nome}}</li>
+                        <li><span>CPF: </span> {{funcionario.cpf}}</li>
+                        <li><span>Telefone:: </span> {{funcionario.telefone}}</li>
+                        <li><span>Idade: </span> {{funcionario.idade}}</li>
+                        <li><span>Email: </span> {{funcionario.email}}</li>
+                        <li><span>Sexo: </span> {{funcionario.sexo}}</li>
+                        <li><span>Data de Nascimento: </span> {{funcionario.data_nascimento}}</li>
+                        <li><span>Descrição: </span> {{funcionario.cargo}}</li>
+                    </ul>
+                </div>
+                <div class="crud">
+                    <a href="{% url 'url_updateFuncionario' funcionario.pk  %}" class="add">Editar</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
